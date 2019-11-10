@@ -1,25 +1,27 @@
-import React, { useState } from 'react'
-import './../App.css'
-import { useDrop } from 'react-dnd'
-import {TYPES} from './DraggableInput'
+import {useDrop} from 'react-dnd';
+import React from 'react';
+
+import {TYPES} from '../DraggableInput/DraggableInput';
+
+import '../App/App.css';
 
 const DropArea = ({items}) => {
-  const [{ canDrop, isOver }, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: TYPES.ITEM,
     drop: () => ({}),
     collect: monitor => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
-  })
-  
+  });
+
   return (
     <div ref={drop} className='app_dropTarget'>
       {items.map((item) =>
-            	<p>{item.id}</p>
-            )}
+        <p>{item.id}</p>
+      )}
     </div>
   )
-}
-export default DropArea
+};
+export default DropArea;
 
