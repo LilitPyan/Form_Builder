@@ -1,0 +1,13 @@
+.text_input {
+    font-weight: bolder;
+    margin: 18px;
+    padding-left: 25px;
+    background-color: #5F9EA0;
+    width: 400px;
+    height: 55px;
+}
+.text_input_btn {
+    margin-left: 15px;
+    width: 60px;
+    border-radius: 2px;
+}

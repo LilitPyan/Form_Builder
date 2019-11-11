@@ -1,18 +1,17 @@
 import {useDrag} from 'react-dnd';
 import React from 'react';
 
-import '../App/App.css';
+import './DragInput.css';
 
 export const TYPES = {
   ITEM: 'item',
 };
 
-const DraggableInput = ({item, addItem}) => {
+const DragInput = ({item, addItem}) => {
   const [, drag] = useDrag({
     item: {...item, type: TYPES.ITEM},
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-
       if (item && dropResult) {
         addItem(item);
       }
@@ -29,4 +28,4 @@ const DraggableInput = ({item, addItem}) => {
   )
 };
 
-export default DraggableInput;
+export default DragInput;

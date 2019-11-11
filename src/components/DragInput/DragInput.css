@@ -1,0 +1,10 @@
+.app_dragItem {
+    font-weight: bolder;
+    margin: 15px;
+    border-color: #5F9EA0;
+    width: 160px;
+    height: 30px;
+    border-style: dashed;
+    padding-left: 15px;
+    cursor: pointer;
+}

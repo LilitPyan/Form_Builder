@@ -1,9 +1,8 @@
 import {useDrop} from 'react-dnd';
 import React from 'react';
-
-import {TYPES} from '../DraggableInput/DraggableInput';
-
-import '../App/App.css';
+import TextInput from './../TextInput/TextInput'
+import {TYPES} from './../DragInput/DragInput';
+import './DropArea.css'
 
 const DropArea = ({items}) => {
   const [, drop] = useDrop({
@@ -18,10 +17,11 @@ const DropArea = ({items}) => {
   return (
     <div ref={drop} className='app_dropTarget'>
       {items.map((item) =>
-        <p>{item.id}</p>
+        <TextInput/>
       )}
     </div>
   )
 };
 export default DropArea;
+
 
