@@ -2,7 +2,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import {DndProvider} from 'react-dnd';
 import React from 'react';
 
-import DraggableInput from '../DragInput/DragInput.js';
+import DragInput from "../DragInput/DragInput";
 import DropArea from '../DropArea/DropArea.js';
 
 import './App.css';
@@ -10,7 +10,7 @@ import './App.css';
 const ITEMS = [
   {
     id: 1,
-    name: 'Header Text'
+    name: 'Header Text',
   },
   {
     id: 2,
@@ -71,21 +71,27 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <DndProvider backend = {HTML5Backend}>
-        <div className = 'app_container'>
-          <p className = 'app_name'>REACT FORM BUILDER</p>
-          <div className = 'app_dropTarget'>
-            <DropArea items = {this.state.items}/>
+      <DndProvider backend={HTML5Backend}>
+        <div className='app_main_container'>
+          <div className='app_header'>
+            <p className='app_form_header'>React Form Builder</p>
+            <button className='app_header_btn'>Preview Form</button>
           </div>
-          <div className = 'app_draggableItem'>
-            <ul className = 'app_ul_container'>
-              {ITEMS.map((item, index) =>
-                <DraggableInput key = {item.id} item = {item} addItem = {this.addItem}/>
-              )}
-            </ul>
+          <div className='app_container'>
+            <div className='app_dropTarget'>
+              <DropArea items={this.state.items}/>
+            </div>
+            <div className='app_draggableItem'>
+              <p className='app_toolbox_header'>Toolbox</p>
+              <ul className='app_ul_container'>
+                {ITEMS.map((item, index) =>
+                  <DragInput key={item.id} item={item} addItem={this.addItem}/>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </DndProvider>
-    );
+    )
   }
 }

@@ -50,8 +50,6 @@ const DropArea = ({items}) => {
         return <MultiLineInput />;
       case 11:
         return <Image />;
-      default:
-        return alert('error');
     }
   };
 
@@ -61,6 +59,7 @@ const DropArea = ({items}) => {
     </div>
   )
 };
+
 export default DropArea;
 
 

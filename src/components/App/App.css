@@ -4,26 +4,58 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+p{
+  margin: 0;
+}
+button{
+  margin: 0;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
   monospace;
 }
-.app_container {
-  margin: 20px auto;
-  height: 1200px;
+.app_main_container {
+  margin: 10px auto;
   width: 1000px;
+  display: block;
+}
+.app_container {
+  height: 1200px;
+  width: 900px;
   display: flex;
 }
-.app_name {
-  font-size: 25px;
-  color: lightslategray;
-  font-weight: bolder;
+.app_header {
+  margin:0;
+}
+.app_form_header {
+  font-size: 20px;
+  color: #4682B4;
+  width: 250px;
+  margin: 0;
+}
+.app_toolbox_header {
+  font-size: 20px;
+  color: #696969;
+  width: 100px;
+  padding-left: 130px;
+}
+.app_header_btn {
+  height: 35px;
+  width: 130px;
+  color: white;
+  font-size: 15px;
+  background-color: #4682B4;
+  float: right;
+  border-style: none;
+  border-radius: 4px;
+  margin-right: 320px;
 }
 .app_draggableItem {
   height: 600px;
-  width: 250px;
-  border: 5px solid #5F9EA0;
+  width: 300px;
+  margin: 0;
 }
 .app_ul_container {
  list-style-type: none;
+  margin: 0;
 }
