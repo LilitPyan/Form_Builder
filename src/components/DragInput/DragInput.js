@@ -22,7 +22,7 @@ const DragInput = ({item, addItem}) => {
   });
 
   return (
-    <div ref={drag} className='app_dragItem'>
+    <div ref = {drag} className = 'app_dragItem'>
       {item.name}
     </div>
   )

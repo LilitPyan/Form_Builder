@@ -1,12 +1,12 @@
-.text_input {
+.paragraph {
     font-weight: bolder;
     margin: 18px;
     padding-left: 25px;
-    background-color: #5F9EA0;
+    background-color: lightslategray;
     width: 400px;
     height: 55px;
 }
-.text_input_btn {
+.paragraph_btn {
     margin-left: 45px;
     width: 60px;
     border-radius: 2px;

@@ -65,20 +65,22 @@ export default class App extends React.Component {
         ...this.state.items,
         item
       ]
-    })
+    });
+    console.log(item);
   };
 
   render() {
     return (
-      <DndProvider backend={HTML5Backend}>
-        <div className='app_container'>
-          <div className='app_dropTarget'>
-            <DropArea items={this.state.items}/>
+      <DndProvider backend = {HTML5Backend}>
+        <div className = 'app_container'>
+          <p className = 'app_name'>REACT FORM BUILDER</p>
+          <div className = 'app_dropTarget'>
+            <DropArea items = {this.state.items}/>
           </div>
-          <div className='app_draggableItem'>
-            <ul className='app_ul_container'>
+          <div className = 'app_draggableItem'>
+            <ul className = 'app_ul_container'>
               {ITEMS.map((item, index) =>
-                <DraggableInput key={item.id} item={item} addItem={this.addItem}/>
+                <DraggableInput key = {item.id} item = {item} addItem = {this.addItem}/>
               )}
             </ul>
           </div>

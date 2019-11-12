@@ -1,6 +1,6 @@
 .app_dropTarget {
-    margin-right: 10px;
-    height: 594px;
+    margin: 0;
+    height: 1200px;
     width: 600px;
     border: 5px solid #66CDAA;
     display: block;

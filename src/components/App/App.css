@@ -9,16 +9,20 @@ code {
   monospace;
 }
 .app_container {
-  margin: 10px auto;
-  height: 800px;
+  margin: 20px auto;
+  height: 1200px;
   width: 1000px;
   display: flex;
+}
+.app_name {
+  font-size: 25px;
+  color: lightslategray;
+  font-weight: bolder;
 }
 .app_draggableItem {
   height: 600px;
   width: 250px;
   border: 5px solid #5F9EA0;
-  margin: 0;
 }
 .app_ul_container {
  list-style-type: none;
