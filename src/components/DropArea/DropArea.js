@@ -1,20 +1,12 @@
 import {useDrop} from 'react-dnd';
 import React from 'react';
-
-import TextInput from './../TextInput/TextInput'
-import NumberInput from "./../NumberInput/NumberInput";
 import HeaderText from "../HeaderText/HeaderText"
-import Label from "../Label/Label";
-import Paragraph from "../Paragraph/Paragraph";
-import LineBreak from "../LineBreak/LineBreak";
-import Dropdown from "../Dropdown/Dropdown";
-import Checkbox from "../Checkbox/Checkbox";
-import MultipleChoice from "../MultipleChoice/MultipleChoice";
-import MultiLineInput from "../MultiLineInput/MultiLineInput";
-import Image from "../Image/Image";
-
-import {TYPES} from './../DragInput/DragInput';
+import Gif, {TYPES} from './../DragInput/DragInput';
 import './DropArea.css'
+import { useState } from 'react';
+import arrayMove from "array-move";
+import {sortableContainer, sortableElement} from "react-sortable-hoc";
+
 
 const DropArea = ({items}) => {
   const [, drop] = useDrop({
@@ -31,35 +23,34 @@ const DropArea = ({items}) => {
       case 1:
         return <HeaderText />;
       case 2:
-        return <Label />;
-      case 3:
-        return <Paragraph />;
-      case 4:
-        return <LineBreak />;
-      case 5:
-        return <Dropdown />;
-      case 6:
-        return <Checkbox />;
-      case 7:
-        return <MultipleChoice />;
-      case 8:
         return <TextInput />;
-      case 9:
-        return <NumberInput />;
-      case 10:
-        return <MultiLineInput />;
-      case 11:
-        return <Image />;
     }
   };
 
+  const [gifs, setGifs] = useState([
+    <HeaderText />,
+    <TextInput />
+  ]);
+  const onSortEnd = ({ oldIndex, newIndex }) => setGifs(arrayMove(gifs, oldIndex, newIndex));
+  const SortableGifsContainer = sortableContainer(({ children }) => <div className="gifs">{children}</div>);
+  const SortableGif = sortableElement(({ gif }) => <Gif key={gif} gif={gif} />);
+
+
   return (
-    <div ref = {drop} className = 'app_dropTarget'>
-      {items.map((item, index) => selectComponent({item, index}))}
-    </div>
+      <div ref = {drop} className = 'app_dropTarget'>
+        {items.map((item, index) => selectComponent({item, index}))}
+        <SortableGifsContainer axis="x" onSortEnd={onSortEnd}>
+          {gifs.map((gif, i) =>
+            <SortableGif
+              // don't forget to pass index prop with item index
+              index={i}
+              key={gif}
+              gif={gif}
+            />
+          )}
+        </SortableGifsContainer>
+      </div>
   )
 };
 
 export default DropArea;
-
-

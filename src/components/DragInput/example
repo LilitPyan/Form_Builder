@@ -1,68 +1,58 @@
-import React, {useState, useCallback, useMemo, useEffect} from 'react';
+import React, { useRef } from 'react'
+import { useDrag, useDrop } from 'react-dnd'
 
-const POSITION = {x: 0, y: 0};
-
-const Draggable = ({children, id, onDrag, onDragEnd}) => {
-const [state, setState] = useState({
-  isDragging: false,
-  origin: POSITION,
-  translation: POSITION
-});
-
-const handleMouseDown = useCallback(({clientX, clientY}) => {
-  setState(state => ({
-    ...state,
-    isDragging: true,
-    origin: {x: clientX, y: clientY}
-  }));
-}, []);
-
-const handleMouseMove = useCallback(({clientX, clientY}) => {
-  const translation = {x: clientX - state.origin.x, y: clientY - state.origin.y};
-
-  setState(state => ({
-    ...state,
-    translation
-  }));
-
-  onDrag({translation, id});
-}, [state.origin, onDrag, id]);
-
-const handleMouseUp = useCallback(() => {
-  setState(state => ({
-    ...state,
-    isDragging: false
-  }));
-
-  onDragEnd();
-}, [onDragEnd]);
-
-useEffect(() => {
-  if (state.isDragging) {
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
-  } else {
-    window.removeEventListener('mousemove', handleMouseMove);
-    window.removeEventListener('mouseup', handleMouseUp);
-
-    setState(state => ({...state, translation: {x: 0, y: 0}}));
-  }
-}, [state.isDragging, handleMouseMove, handleMouseUp]);
-
-const styles = useMemo(() => ({
-  cursor: state.isDragging ? '-webkit-grabbing' : '-webkit-grab',
-  transform: `translate(${state.translation.x}px, ${state.translation.y}px)`,
-  transition: state.isDragging ? 'none' : 'transform 500ms',
-  zIndex: state.isDragging ? 2 : 1,
-  position: state.isDragging ? 'absolute' : 'relative'
-}), [state.isDragging, state.translation]);
-  return (
-    <div style={styles} onMouseDown={handleMouseDown}>
-      {children}
-    </div>
-  );
+export const TYPES = {
+  ITEM: 'item',
 };
-
-export default Draggable;
-
-
+const Card = ({ item, index, moveItem , addItem}) => {
+  const ref = useRef(null)
+  const [, drop] = useDrop({
+    accept: TYPES.ITEM,
+    hover(item, monitor) {
+      if (!ref.current) {
+        return
+      }
+      const dragIndex = item.index;
+      const hoverIndex = index;
+      if (dragIndex === hoverIndex) {
+        return
+      }
+      const hoverBoundingRect = ref.current.getBoundingClientRect();
+      const hoverMiddleY =
+        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const clientOffset = monitor.getClientOffset();
+      const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+        return
+      }
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+        return
+      }
+      moveItem(dragIndex, hoverIndex);
+      item.index = hoverIndex
+    },
+  });
+  const [, drag] = useDrag({
+    item: {...item, type: TYPES.ITEM},
+    end: (item, monitor) => {
+      const dropResult = monitor.getDropResult();
+      if (item && dropResult) {
+        addItem(item);
+      }
+    },
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+  drag(drop(ref));
+  return (
+    <div className = 'text_input' ref={ref}>
+      <label>Text Input</label>
+      <br/>
+      <input type = 'text'/>
+      <button className = 'text_input_btn'>Edit</button>
+      <button className = 'text_input_btn'>Delete</button>
+    </div>
+  )
+};
+export default Card

@@ -2,17 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7d2a8c5-3047-494f-9c27-f2586476bbb2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/DragInput/example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DragInput/DragInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DragInput/DragInput.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Checkbox/Checkbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Checkbox/Checkbox.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DragInput/DragInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DragInput/DragInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DropArea/DropArea.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropArea/DropArea.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DragInput/example" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DragInput/example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DropArea/DropArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropArea/DropArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dropdown/Dropdown.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dropdown/Dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Image/Image.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Image/Image.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Label/Label.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Label/Label.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LineBreak/LineBreak.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LineBreak/LineBreak.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MultiLineInput/MultiLineInput.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MultiLineInput/MultiLineInput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MultipleChoice/MultipleChoice.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MultipleChoice/MultipleChoice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NumberInput/NumberInput.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NumberInput/NumberInput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Paragraph/Paragraph.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Paragraph/Paragraph.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TextInput/TextInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TextInput/TextInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +50,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../form_builder" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -82,6 +98,11 @@
       <workItem from="1573464110577" duration="21796000" />
       <workItem from="1573490682561" duration="5664000" />
       <workItem from="1573539222615" duration="19864000" />
+      <workItem from="1573560672578" duration="3048000" />
+      <workItem from="1573578394439" duration="10378000" />
+      <workItem from="1573625208185" duration="1219000" />
+      <workItem from="1573627171275" duration="232000" />
+      <workItem from="1573628314850" duration="2948000" />
     </task>
     <servers />
   </component>

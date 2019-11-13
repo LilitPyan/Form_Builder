@@ -1,97 +1,39 @@
-import HTML5Backend from 'react-dnd-html5-backend';
-import {DndProvider} from 'react-dnd';
-import React from 'react';
-
-import DragInput from "../DragInput/DragInput";
-import DropArea from '../DropArea/DropArea.js';
-
+import React, { useState } from 'react';
 import './App.css';
+import { sortableContainer, sortableElement } from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 
-const ITEMS = [
-  {
-    id: 1,
-    name: 'Header Text',
-  },
-  {
-    id: 2,
-    name: 'Label'
-  },
-  {
-    id: 3,
-    name: 'Paragraph'
-  },
-  {
-    id: 4,
-    name: 'Line Break'
-  },
-  {
-    id: 5,
-    name: 'Dropdown'
-  },
-  {
-    id: 6,
-    name: 'Checkbox'
-  },
-  {
-    id: 7,
-    name: 'Multiple Choice'
-  },
-  {
-    id: 8,
-    name: 'Text Input'
-  },
-  {
-    id: 9,
-    name: 'Number Input'
-  },
-  {
-    id: 10,
-    name: 'Multi-line Input'
-  },
-  {
-    id: 11,
-    name: 'Image'
-  },
-];
+import Gif from './../DragInput/DragInput';
+import HeaderText from "../HeaderText/HeaderText";
+import TextInput from "../TextInput/TextInput";
 
-export default class App extends React.Component {
-  state = {
-    items: []
-  };
 
-  addItem = (item) => {
-    this.setState({
-      items: [
-        ...this.state.items,
-        item
-      ]
-    });
-    console.log(item);
-  };
+const App = () => {
 
-  render() {
-    return (
-      <DndProvider backend={HTML5Backend}>
-        <div className='app_main_container'>
-          <div className='app_header'>
-            <p className='app_form_header'>React Form Builder</p>
-            <button className='app_header_btn'>Preview Form</button>
-          </div>
-          <div className='app_container'>
-            <div className='app_dropTarget'>
-              <DropArea items={this.state.items}/>
-            </div>
-            <div className='app_draggableItem'>
-              <p className='app_toolbox_header'>Toolbox</p>
-              <ul className='app_ul_container'>
-                {ITEMS.map((item, index) =>
-                  <DragInput key={item.id} item={item} addItem={this.addItem}/>
-                )}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </DndProvider>
-    )
-  }
-}
+  const [gifs, setGifs] = useState([
+    <HeaderText />,
+    <TextInput />
+  ]);
+  const onSortEnd = ({ oldIndex, newIndex }) => setGifs(arrayMove(gifs, oldIndex, newIndex));
+  const SortableGifsContainer = sortableContainer(({ children }) => <div className="gifs">{children}</div>);
+  const SortableGif = sortableElement(({ gif }) => <Gif key={gif} gif={gif} />);
+
+  return (
+    <div className="App">
+      <h1>Drag those GIFs around</h1>
+      <h2>Set 1</h2>
+      <SortableGifsContainer axis="x" onSortEnd={onSortEnd}>
+        {gifs.map((gif, i) =>
+          <SortableGif
+            // don't forget to pass index prop with item index
+            index={i}
+            key={gif}
+            gif={gif}
+          />
+        )}
+      </SortableGifsContainer>
+    </div>
+  );
+};
+
+export default App;
